@@ -44,6 +44,15 @@ namespace Lab4._4
                 }
             );
 
+            var melnykCipherer = new Cipherer(
+                    new CipherSettings
+                    {
+                        A = 5,
+                        B = 11,
+                        AReverted = 7
+                    }
+                );
+
             var texts = new Reader(args).Read();
 
             foreach (var text in texts)
@@ -72,6 +81,21 @@ namespace Lab4._4
                     Console.WriteLine(text.content);
                     Console.WriteLine();
                     Console.WriteLine(decodedSemenchenko);
+                    Console.WriteLine();
+                    Console.WriteLine();
+
+                    continue;
+                }
+
+                if (text.fileName == "melnyk.txt")
+                {
+                    var decodedMelnyk = melnykCipherer.Decode(text.content);
+
+                    Console.WriteLine(text.fileName);
+                    Console.WriteLine();
+                    Console.WriteLine(text.content);
+                    Console.WriteLine();
+                    Console.WriteLine(decodedMelnyk);
                     Console.WriteLine();
                     Console.WriteLine();
 
